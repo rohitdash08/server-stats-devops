@@ -11,7 +11,11 @@ A portable Bash script to report server performance statistics.
 
 ## Installation
 ```bash
-git clone repo-url
-cd server-stats
+git clone https://github.com/rohitdash08/server-stats-devops.git
+cd server-stats-devops
 chmod +x bin/server-stats.sh
 ```
+
+## Project Url
+
+https://roadmap.sh/projects/server-stats
