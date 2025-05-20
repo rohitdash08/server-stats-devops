@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Install ShellCheck
+        run: sudo apt-get update && sudo apt-get install -y shellcheck
+      
+      - name: Run ShellCheck
+        run: shellcheck bin/server-stats.sh
+      
+      - name: Make script executable
+        run: chmod +x bin/server-stats.sh
+      
+      - name: Run integrations tests
+        run: |
+          chmod +x tests/testcases.sh
+          tests/testcases.sh
+          
